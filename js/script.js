@@ -12,11 +12,12 @@ const countdown = setInterval(function() {
     countdownElement.innerText = count;
     count--;
 
-    if(count === 0) { 
+    if(count === -1) { 
         console.log(count);
-        countdownElement.innerText = count;
+        // countdownElement.innerText = count;
         clearInterval(countdown);
 
+        hideNumbers();
         displayForm();
     }
 }, 1000);
@@ -43,13 +44,15 @@ function randNum(iterations, max) {
     }
 }
 
+// hide numbers
+function hideNumbers() {
+
+    numbersRandElement.classList.add('d-none');
+}
 
 // display form
 function displayForm() {
 
-    if (count === 0) {
-
-        formElement.classList.remove('d-none');
-        formElement.classList.add('d-block');
-    }
+    formElement.classList.remove('d-none');
+    formElement.classList.add('d-block');
 }
