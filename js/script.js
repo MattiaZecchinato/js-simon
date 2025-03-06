@@ -1,7 +1,10 @@
+// display form
+const formElement = document.getElementById('answers-form');
+
 // countdown 30 sec
 const countdownElement = document.getElementById('countdown');
 
-let count = 10;
+let count = 3;
 
 const countdown = setInterval(function() {
 
@@ -13,6 +16,8 @@ const countdown = setInterval(function() {
         console.log(count);
         countdownElement.innerText = count;
         clearInterval(countdown);
+
+        displayForm();
     }
 }, 1000);
 
@@ -35,5 +40,16 @@ function randNum(iterations, max) {
         const randNum = Math.ceil(Math.random() * max);
 
         numbersRandElement.innerHTML += `<li>${randNum}</li>`;
+    }
+}
+
+
+// display form
+function displayForm() {
+
+    if (count === 0) {
+
+        formElement.classList.remove('d-none');
+        formElement.classList.add('d-block');
     }
 }
