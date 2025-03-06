@@ -32,7 +32,10 @@ const maxNumRand = 50;
 
 const numbersRandElement = document.getElementById('numbers-list');
 
-randNum(displayNum, maxNumRand);
+const arrayNumRand = randNum(displayNum, maxNumRand);
+
+// check numbers
+
 
 
 // FUNCTION
@@ -40,12 +43,18 @@ randNum(displayNum, maxNumRand);
 // generate random number
 function randNum(iterations, max) {
 
+    const arrayNum = [];
+
     for (let i = 0; i < iterations; i++) {
 
         const randNum = Math.ceil(Math.random() * max);
 
         numbersRandElement.innerHTML += `<li>${randNum}</li>`;
+
+        arrayNum.push(randNum);
     }
+
+    return arrayNum;
 }
 
 // hide numbers
