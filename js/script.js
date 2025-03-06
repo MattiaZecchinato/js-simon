@@ -7,7 +7,7 @@ const instrElement = document.getElementById('instructions');
 // countdown 30 sec
 const countdownElement = document.getElementById('countdown');
 
-let count = 3;
+let count = 30;
 
 const countdown = setInterval(function() {
 
@@ -34,8 +34,55 @@ const numbersRandElement = document.getElementById('numbers-list');
 
 const arrayNumRand = randNum(displayNum, maxNumRand);
 
-// check numbers
+console.log(arrayNumRand);
 
+// check numbers
+const inputNumbElement = document.querySelectorAll('.form-control');
+
+const messageElement = document.getElementById('message');
+
+formElement.addEventListener('submit', function(event){
+
+    event.preventDefault();
+
+    let countCorrect = 0;
+
+    for (let i = 0; i < displayNum; i++) {
+
+        console.log(inputNumbElement[i].value);
+
+        for (let j = 0; j < arrayNumRand.length; j++) {
+
+            if (parseInt(inputNumbElement[i].value) === arrayNumRand[j]) {
+
+                countCorrect++;
+            }
+        }
+    }
+
+    if (countCorrect > 0) {
+
+        messageElement.classList.remove('text-danger');
+        messageElement.classList.add('text-success');
+
+        if (countCorrect === 1) {
+
+            messageElement.innerText = `Hai indovinato ${countCorrect} numero`;
+        }
+        else {
+
+            messageElement.innerText = `Hai indovinato ${countCorrect} numeri`;
+        }
+    }
+    else {
+
+        messageElement.classList.remove('text-success');
+        messageElement.classList.add('text-danger');
+        messageElement.innerText = 'Ci sono valori non validi o duplicati';
+    }
+
+    console.log(`counter correct:${countCorrect}`);
+});
 
 
 // FUNCTION
