@@ -1,6 +1,9 @@
 // display form
 const formElement = document.getElementById('answers-form');
 
+// instructions
+const instrElement = document.getElementById('instructions');
+
 // countdown 30 sec
 const countdownElement = document.getElementById('countdown');
 
@@ -19,6 +22,7 @@ const countdown = setInterval(function() {
 
         hideNumbers();
         displayForm();
+        changeInstr();
     }
 }, 1000);
 
@@ -55,4 +59,10 @@ function displayForm() {
 
     formElement.classList.remove('d-none');
     formElement.classList.add('d-block');
+}
+
+// change instructions
+function changeInstr() {
+
+    instrElement.innerText = 'Inserisci tutti i numeri che ricordi (l\'ordine non è importante)!';
 }
